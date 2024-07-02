@@ -1,7 +1,6 @@
-version: '3.7'
+version: "3.7"
 
 services:
-
   # The 'setup' service runs a one-off script which initializes users inside
   # Elasticsearch — such as 'logstash_internal' and 'kibana_system' — with the
   # values of the passwords defined in the '.env' file. It also creates the
@@ -112,3 +111,8 @@ networks:
 
 volumes:
   elasticsearch:
+    driver: local
+    driver_opts:
+      type: "none"
+      o: "bind"
+      device: "/root/elk/data"
